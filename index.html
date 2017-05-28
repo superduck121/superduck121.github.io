@@ -28,41 +28,54 @@
 
 <body>
     <noscript>
-        <p>The site heavily uses bootstrap, youtube embeds, and otehr such nonsense. Please enable JavaScript and refresh the
+        <p>The site heavily uses bootstrap, youtube embeds, and other such nonsense. Please enable JavaScript and refresh the
             page.
         </p>
     </noscript>
 
     <div class="container">
-        <h1>THE LEX COLLECTION</h1>
+        <div class='container">' <div class="row">
+            <div class="col">
+                <h1>THE LEX COLLECTION</h1>
+            </div>
+        </div>
 
-        <img src="" id="roblox_avatar" />
+        <div class="row pt-2">
+            <div class="col-9">
+                <h3>Scary Stuff</h3>
+            </div>
+            <div class="col">
+                <div class="row text-center">
+                    <img src="" class="image-fluid img-thumbnail" id="roblox_avatar" />
+                </div>
+                <div class="row">
+                    <div class="g-ytsubscribe" data-channelid="UCimeRf9O1k2Up0hCwTzqnpw" data-layout="full" data-count="hidden"></div>
+                </div>
+            </div>
+        </div>
 
-        <div class="g-ytsubscribe" data-channelid="UCimeRf9O1k2Up0hCwTzqnpw" data-layout="full" data-count="hidden"></div>
-    </div>
+        <!-- jQuery first, then Tether, then Bootstrap JS. -->
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+            crossorigin="anonymous"></script>
 
-    <!-- jQuery first, then Tether, then Bootstrap JS. -->
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
-        crossorigin="anonymous"></script>
+        <!-- YouTube Embeds -->
+        <script src="https://apis.google.com/js/platform.js"></script>
 
-    <!-- YouTube Embeds -->
-    <script src="https://apis.google.com/js/platform.js"></script>
+        <script type="text/javascript">
+            const avatar_size = "250";
 
-    <script type="text/javascript">
-        const avatar_size = "100";
+            function load_avatar() {
+                let roblox_avatar = document.getElementById("roblox_avatar");
+                roblox_avatar.src = "https://www.roblox.com/Thumbs/Avatar.ashx?x=" + avatar_size
+                    + "&y=" + avatar_size + "&username=SuperDuck121";
+            }
 
-        function load_avatar() {
-            let roblox_avatar = document.getElementById("roblox_avatar");
-            roblox_avatar.src = "https://www.roblox.com/Thumbs/Avatar.ashx?x=" + avatar_size
-                + "&y=" + avatar_size + "&username=SuperDuck121";
-        }
-
-        load_avatar();
-    </script>
+            load_avatar();
+        </script>
 
 </body>
 
