@@ -18,8 +18,21 @@
             src: url(fonts/OXYGENE1.TTF)
         }
 
+        @font-face {
+            font-family: PUSAB___;
+            src: url(fonts/PUSAB___.otf)
+        }
+
         H1 {
             font-family: OXYGENE1;
+        }
+
+        H3 {
+            font-family: PUSAB___;
+        }
+
+        #scary-stuff-error {
+            color: red;
         }
     </style>
 
@@ -37,20 +50,26 @@
         <div class='container">' <div class="row">
             <div class="col">
                 <h1>THE LEX COLLECTION</h1>
-            </div>
-        </div>
 
-        <div class="row pt-2">
-            <div class="col-9">
-                <h3>Scary Stuff</h3>
-            </div>
-            <div class="col">
-                <div class="row text-center">
-                    <img src="" class="image-fluid img-thumbnail" id="roblox_avatar" />
-                </div>
                 <div class="row pt-2">
-                    <div class="g-ytsubscribe" data-channelid="UCimeRf9O1k2Up0hCwTzqnpw" data-layout="full" data-count="hidden"></div>
+                    <div class="col-8">
+                        <h3>Scary Stuff</h3>
+                        <div id="scary-stuff">
+
+                            <p id="scary-stuff-error">
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row text-center">
+                            <img src="" class="image-fluid img-thumbnail" id="roblox_avatar" />
+                        </div>
+                        <div class="row pt-2">
+                            <div class="g-ytsubscribe" data-channelid="UCimeRf9O1k2Up0hCwTzqnpw" data-layout="full" data-count="hidden"></div>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
 
@@ -62,16 +81,34 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
             crossorigin="anonymous"></script>
 
-        <!-- YouTube Embeds -->
-        <script src="https://apis.google.com/js/platform.js"></script>
-
         <script type="text/javascript">
             const avatar_size = "250";
+            const scary_stuff_api = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=5&playlistId=PLB-N7HCHfAKkwAsEGI-qxi7rtFvpRNVdp&key=AIzaSyCbC_OKrob1ihx37UXgCMcFQD273dvm3MU";
+            let scary_stuff = document.getElementById("scary-stuff");
 
             function load_avatar() {
                 let roblox_avatar = document.getElementById("roblox_avatar");
                 roblox_avatar.src = "https://www.roblox.com/Thumbs/Avatar.ashx?x=" + avatar_size
                     + "&y=" + avatar_size + "&username=SuperDuck121";
+            }
+
+            function load_videos(resp) {
+                let videos = data.results.items;
+                return videos.items.map(function (video) {
+
+                })
+
+            }
+
+            function get_videos() {
+                fetch(playlist_api)
+                    .then((resp) => resp.json())
+                    .then(load_videos(resp))
+                    .catch(
+                    function (err) {
+                        let scary_stuff = document.getElementById("scary-stuff-error");
+                        scary_stuff.innerText = err.message;
+                    });
             }
 
             load_avatar();
