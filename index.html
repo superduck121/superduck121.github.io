@@ -23,6 +23,10 @@
             src: url(fonts/PUSAB___.otf)
         }
 
+        BODY {
+            background-color: #FFC56C;
+        }
+
         H1 {
             font-family: OXYGENE1;
         }
@@ -33,6 +37,15 @@
 
         #scary-stuff-error {
             color: red;
+        }
+
+        #roblox_avatar {
+            border-radius: 50%;
+            object-fit: contain;
+        }
+
+        .blue-bg {
+            background-color: #87CEEB;
         }
     </style>
 
@@ -46,73 +59,49 @@
         </p>
     </noscript>
 
-    <div class="container">
-        <div class='container">' <div class="row">
-            <div class="col">
+
+    <div class="container blue-bg">
+        <div class="row">
+            <div class="col" id="left_side">
                 <h1>THE LEX COLLECTION</h1>
+
+                <div id="music_box"></div>
+
+                <div class="card p-1 m-4">
+                    <input type="text" id="codes" placeholder="ENTER CODE"></input>
+                </div>
 
                 <div class="row pt-2">
                     <div class="col-8">
                         <h3>Scary Stuff</h3>
                         <div id="scary-stuff">
-
-                            <p id="scary-stuff-error">
-                            </p>
+                            <div id="video-container" class="p-3">
+                            </div>
+                            <p id="scary-stuff-error"></p>
                         </div>
                     </div>
                     <div class="col">
                         <div class="row text-center">
                             <img src="" class="image-fluid img-thumbnail" id="roblox_avatar" />
                         </div>
-                        <div class="row pt-2">
+                        <div class="row mt-3">
                             <div class="g-ytsubscribe" data-channelid="UCimeRf9O1k2Up0hCwTzqnpw" data-layout="full" data-count="hidden"></div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
+    </div>
 
-        <!-- jQuery first, then Tether, then Bootstrap JS. -->
-        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
-            crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
-            crossorigin="anonymous"></script>
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+        crossorigin="anonymous"></script>
 
-        <script type="text/javascript">
-            const avatar_size = "250";
-            const scary_stuff_api = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=5&playlistId=PLB-N7HCHfAKkwAsEGI-qxi7rtFvpRNVdp&key=AIzaSyCbC_OKrob1ihx37UXgCMcFQD273dvm3MU";
-            let scary_stuff = document.getElementById("scary-stuff");
-
-            function load_avatar() {
-                let roblox_avatar = document.getElementById("roblox_avatar");
-                roblox_avatar.src = "https://www.roblox.com/Thumbs/Avatar.ashx?x=" + avatar_size
-                    + "&y=" + avatar_size + "&username=SuperDuck121";
-            }
-
-            function load_videos(resp) {
-                let videos = data.results.items;
-                return videos.items.map(function (video) {
-
-                })
-
-            }
-
-            function get_videos() {
-                fetch(playlist_api)
-                    .then((resp) => resp.json())
-                    .then(load_videos(resp))
-                    .catch(
-                    function (err) {
-                        let scary_stuff = document.getElementById("scary-stuff-error");
-                        scary_stuff.innerText = err.message;
-                    });
-            }
-
-            load_avatar();
-        </script>
+    <script src="index.js"></script>
 
 </body>
 
